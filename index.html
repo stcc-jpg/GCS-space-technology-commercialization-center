@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>우주기술실용화촉진사업 참여팀 모집</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;900&display=swap">
+<style>
+:root{--ink:#070F26;--deep:#0D1B45;--blue:#3B74FF;--glow:#FFB25B;--lunar:#EEF1F8;--mute:#9AA6C4;--line:rgba(238,241,248,.16);
+--serif:"Noto Serif KR",Georgia,serif;--sans:"Noto Sans KR",system-ui,sans-serif;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--lunar);font:400 17px/1.75 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--glow);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(7,15,38,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+nav b{font-family:var(--serif);font-weight:600}
+nav a.btn{padding:8px 18px;font-size:15px}
+.btn{display:inline-block;background:var(--glow);color:#1A1204;font-weight:700;padding:14px 28px;border-radius:999px;text-decoration:none;border:0;font:700 17px var(--sans);cursor:pointer}
+.btn:hover{background:#ffc580}
+.btn.ghost{background:none;color:var(--lunar);border:1px solid var(--line)}
+
+/* hero: the one memorable moment — Earth's limb with an orbiting satellite */
+.hero{position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:center;padding:80px 0 140px}
+.earth{position:absolute;left:50%;bottom:-118vw;width:150vw;height:150vw;transform:translateX(-50%);border-radius:50%;
+background:radial-gradient(circle at 50% 0%,#5B95FF 0,#1B3B94 4%,#0D1B45 14%,#070F26 40%);box-shadow:0 -6px 60px 6px rgba(91,149,255,.55),0 -2px 8px var(--glow)}
+.orbit{position:absolute;left:50%;bottom:-118vw;width:158vw;height:158vw;margin-left:-79vw;border-radius:50%;border:1px dashed rgba(238,241,248,.28);animation:spin 90s linear infinite}
+.orbit i{position:absolute;top:-7px;left:50%;width:14px;height:14px;border-radius:3px;background:var(--glow);box-shadow:0 0 18px var(--glow)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stars{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 12% 20%,#fff,transparent),radial-gradient(1px 1px at 78% 12%,#fff,transparent),radial-gradient(1.5px 1.5px at 62% 38%,#fff,transparent),radial-gradient(1px 1px at 30% 55%,#fff,transparent),radial-gradient(1px 1px at 90% 48%,#fff,transparent),radial-gradient(1.5px 1.5px at 45% 8%,#fff,transparent);opacity:.7}
+.hero .wrap{position:relative}
+.hero p.k{color:var(--glow);font-weight:500;margin:0 0 18px}
+h1{font:900 clamp(38px,7vw,76px)/1.18 var(--serif);margin:0 0 24px;letter-spacing:-.02em;word-break:keep-all}
+.hero p.lead{max-width:34em;color:#CBD3E8;font-size:19px;margin:0 0 36px;word-break:keep-all}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+
+section{padding:96px 0;border-top:1px solid var(--line)}
+h2{font:900 clamp(28px,4.4vw,42px)/1.3 var(--serif);margin:0 0 16px;word-break:keep-all}
+.sub{color:var(--mute);max-width:36em;margin:0 0 48px;word-break:keep-all}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px 32px}
+.grid h3{font:600 20px var(--serif);margin:0 0 8px}
+.grid p{margin:0;color:#B9C3DC;font-size:16px;word-break:keep-all}
+.grid div{border-top:2px solid var(--blue);padding-top:18px}
+
+/* timeline */
+ol{list-style:none;margin:0;padding:0;position:relative}
+ol:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+ol li{position:relative;padding:0 0 32px 40px}
+ol li:before{content:"";position:absolute;left:0;top:8px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--blue)}
+ol li:first-child:before{border-color:var(--glow);background:var(--glow)}
+ol strong{display:block;font-family:var(--serif);font-size:20px}
+ol span{color:var(--mute);font-size:15px}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.facts div{background:var(--ink);padding:24px}
+.facts small{display:block;color:var(--mute);font-size:14px}
+.facts b{font:600 22px var(--serif)}
+
+/* form */
+#apply{background:linear-gradient(180deg,var(--ink),var(--deep))}
+form{display:grid;gap:20px;max-width:640px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+label{display:grid;gap:8px;font-weight:500;font-size:15px}
+input,select,textarea{font:400 16px var(--sans);color:var(--lunar);background:rgba(238,241,248,.06);border:1px solid var(--line);border-radius:10px;padding:13px 14px;width:100%}
+textarea{min-height:130px;resize:vertical}
+select option{color:#111}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;color:#B9C3DC}
+.check input{width:20px;margin-top:5px}
+#done{display:none;max-width:640px;padding:32px;border:1px solid var(--glow);border-radius:14px}
+#done h3{font:900 26px var(--serif);margin:0 0 8px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.step{border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px;background:rgba(238,241,248,.04)}
+.step h3{font:600 20px var(--serif);margin:0}.step p{margin:0;color:#B9C3DC;font-size:16px;word-break:keep-all;flex:1}
+.step small{color:var(--mute);font-size:14px}.step .btn{text-align:center}
+footer{padding:48px 0;border-top:1px solid var(--line);color:var(--mute);font-size:15px}
+@media(max-width:640px){.row{grid-template-columns:1fr}section{padding:72px 0}}
+@media(prefers-reduced-motion:reduce){.orbit{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>우주기술실용화촉진사업</b><a class="btn" href="#apply">지원하기</a></div></nav>
+
+<header class="hero">
+  <div class="stars"></div><div class="earth"></div><div class="orbit"><i></i></div>
+  <div class="wrap">
+    <p class="k">2026년 참여팀 모집</p>
+    <h1>우주에서 검증된 기술을<br>지구의 산업으로.</h1>
+    <p class="lead">우주기술실용화촉진사업은 연구실의 우주기술을 실제 제품과 서비스로 만들 팀을 찾고 있습니다. 아이디어와 열정이 있다면, 나머지는 함께 준비하겠습니다.</p>
+    <div class="cta"><a class="btn" href="#apply">팀 지원하기</a><a class="btn ghost" href="#about">사업 알아보기</a></div>
+  </div>
+</header>
+
+<section id="about"><div class="wrap">
+  <h2>이 사업은 무엇을 하나요</h2>
+  <p class="sub">우주기술을 사업화하려는 팀이 시제품 제작부터 시장 진출까지 막힘없이 나아갈 수 있도록 지원합니다.</p>
+  <div class="grid">
+    <div><h3>사업화 자금</h3><p>시제품 제작과 시험·검증에 필요한 비용을 지원합니다. (금액은 확정 후 입력)</p></div>
+    <div><h3>전문가 멘토링</h3><p>기술, 특허, 투자 분야 전문가가 팀별로 배정되어 사업 방향을 함께 다듬습니다.</p></div>
+    <div><h3>시험·검증 인프라</h3><p>환경시험 장비와 연구 시설을 이용해 기술의 신뢰성을 확인할 수 있습니다.</p></div>
+    <div><h3>네트워크 연결</h3><p>수요 기업, 투자자, 연구기관과 만나는 기회를 마련합니다.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>모집 개요</h2>
+  <p class="sub">아래 내용은 예시입니다. 실제 공고에 맞게 수정해 주세요.</p>
+  <div class="facts">
+    <div><small>모집 대상</small><b>예비창업팀·중소기업·연구팀</b></div>
+    <div><small>모집 규모</small><b>0개 팀</b></div>
+    <div><small>지원 기간</small><b>0월 0일 – 0월 0일</b></div>
+    <div><small>지원 방법</small><b>이 페이지에서 온라인 접수</b></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>선정까지의 과정</h2>
+  <p class="sub">접수부터 협약까지 네 단계로 진행됩니다.</p>
+  <ol>
+    <li><strong>온라인 접수</strong><span>아래 지원서를 제출합니다.</span></li>
+    <li><strong>서류 심사</strong><span>기술성, 사업성, 팀 역량을 검토합니다.</span></li>
+    <li><strong>발표 평가</strong><span>서류 통과 팀이 심사위원 앞에서 발표합니다.</span></li>
+    <li><strong>최종 선정 및 협약</strong><span>선정된 팀과 협약을 맺고 지원을 시작합니다.</span></li>
+  </ol>
+</div></section>
+
+<section id="apply"><div class="wrap">
+  <h2>신청서를 작성해 보내 주세요</h2>
+  <p class="sub">신청서를 내려받아 작성한 뒤, 메일로 보내면 접수가 완료됩니다.</p>
+  <div class="steps">
+    <div class="step"><h3>신청서 내려받기</h3><p>팀 소개와 사업 계획을 적는 신청서 양식입니다.</p>
+      <a class="btn" id="dl" href="#" download>신청서 양식 받기</a></div>
+    <div class="step"><h3>내용 작성하기</h3><p>팀 구성, 기술 소개, 사업화 계획을 빠짐없이 적어 주세요. 작성 후 파일 이름을 <b>팀이름_신청서</b>로 바꿔 주세요.</p></div>
+    <div class="step"><h3>메일로 제출하기</h3><p>작성한 신청서를 첨부해 아래 주소로 보냅니다. 버튼을 누르면 제목이 채워진 메일 창이 열립니다.</p>
+      <a class="btn" id="mail" href="mailto:contact@example.com?subject=%5B%EC%9A%B0%EC%A3%BC%EA%B8%B0%EC%88%A0%EC%8B%A4%EC%9A%A9%ED%99%94%5D%20%ED%8C%80%20%EC%8B%A0%EC%B2%AD%EC%84%9C%20%EC%A0%9C%EC%B6%9C">신청서 메일 보내기</a>
+      <small>받는 주소: contact@example.com</small></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">우주기술실용화촉진사업 운영사무국 · 문의: contact@example.com</div></footer>
+
+</body>
+</html>

@@ -75,17 +75,108 @@ select option{color:#111}
 .step{border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px;background:rgba(238,241,248,.04)}
 .step h3{font:600 20px var(--serif);margin:0}.step p{margin:0;color:#B9C3DC;font-size:16px;word-break:keep-all;flex:1}
 .step small{color:var(--mute);font-size:14px}.step .btn{text-align:center}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px}
+.zone{position:relative;min-height:360px;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;background-color:#12246a;background-size:cover;background-position:center;border-top:4px solid var(--c)}
+.zone.sat{--c:#3B74FF;background-image:linear-gradient(180deg,rgba(7,15,38,.1),rgba(7,15,38,.88)),url("zone-satellite.jpg")}
+.zone.lau{--c:#FFB25B;background-image:linear-gradient(180deg,rgba(7,15,38,.1),rgba(7,15,38,.88)),url("zone-launcher.jpg")}
+.zone.mac{--c:#4FD1C5;background-image:linear-gradient(180deg,rgba(7,15,38,.1),rgba(7,15,38,.88)),url("zone-machine.jpg")}
+.zone h3{font:900 26px var(--serif);margin:0 0 8px}.zone p{margin:0;color:#DCE3F4;font-size:16px;word-break:keep-all}
 footer{padding:48px 0;border-top:1px solid var(--line);color:var(--mute);font-size:15px}
 @media(max-width:640px){.row{grid-template-columns:1fr}section{padding:72px 0}}
-@media(prefers-reduced-motion:reduce){.orbit{animation:none}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){.orbit{animation:none}.map .dot{transition:none}html{scroll-behavior:auto}}
+
+/* scroll scene */
+.scene{position:relative;height:520vh;border-top:1px solid var(--line)}
+.stick{position:sticky;top:0;height:100vh;overflow:hidden;background:radial-gradient(ellipse at 50% 120%,#13275f,var(--ink) 65%)}
+.globe{position:absolute;left:50%;top:50%;width:52vmin;height:52vmin;margin:-26vmin 0 0 -26vmin;border-radius:50%;
+background:radial-gradient(circle at 35% 30%,#6FA0FF,#1B3B94 45%,#0A1638 78%);box-shadow:0 0 70px rgba(91,149,255,.5);will-change:transform,opacity}
+.sat{position:absolute;width:14px;height:14px;border-radius:3px;background:var(--glow);box-shadow:0 0 18px var(--glow);margin:-7px;will-change:left,top,opacity}
+.ring{position:absolute;left:50%;top:50%;width:84vmin;height:56vmin;margin:-28vmin 0 0 -42vmin;border:1px dashed rgba(238,241,248,.3);border-radius:50%;will-change:opacity}
+.map{position:absolute;inset:0;width:100%;height:100%;opacity:0}
+.map .land{fill:rgba(59,116,255,.14);stroke:rgba(238,241,248,.5);stroke-width:1.2}
+.map .route{fill:none;stroke:var(--glow);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1}
+.map .dot{fill:var(--mute);transition:fill .3s,r .3s}
+.map .dot.on{fill:var(--glow);r:9}
+.map text{fill:var(--lunar);font:600 13px var(--sans)}
+.map .cap{fill:var(--mute);font:400 11px var(--sans)}
+.panel{position:absolute;left:24px;right:24px;bottom:9vh;max-width:460px;padding:22px 24px;border-left:3px solid var(--glow);background:rgba(7,15,38,.72);backdrop-filter:blur(6px)}
+.panel h3{font:900 clamp(22px,3.4vw,30px) var(--serif);margin:0 0 6px}.panel p{margin:0;color:#C4CDE4;font-size:16px;word-break:keep-all}
+.rail{position:fixed;left:10px;top:20vh;bottom:20vh;width:2px;background:var(--line);z-index:4}
+.rail i{position:absolute;left:-5px;top:0;width:12px;height:12px;border-radius:3px;background:var(--glow);box-shadow:0 0 12px var(--glow)}
+@media(max-width:640px){.rail{display:none}.map text{font-size:15px}}
+
+/* hero flows into scene */
+.scene{height:560vh;border-top:0}
+.stick{height:100vh;height:100svh}
+.globe{left:50%;top:0;width:150vw;height:150vw;margin:0 0 0 -75vw;border-radius:50%;
+background:radial-gradient(circle at 50% 0%,#5B95FF 0,#1B3B94 4%,#0D1B45 14%,#070F26 40%);box-shadow:0 -6px 60px 6px rgba(91,149,255,.55),0 -2px 8px var(--glow)}
+.ring{left:4%;top:30%;width:92%;height:140%;margin:0}
+.hcopy{position:absolute;left:0;right:0;top:0;padding:14vh max(24px,calc((100% - 1040px)/2)) 0;will-change:opacity}
+.hcopy .k{color:var(--glow);font-weight:500;margin:0 0 18px}
+.hcopy .lead{max-width:34em;color:#CBD3E8;font-size:19px;margin:0 0 32px;word-break:keep-all}
+.panel{opacity:0}
+
+.map .land{stroke-width:1;vector-effect:non-scaling-stroke}
+.map .route{stroke-width:.9}
+.map .dot.on{r:4}
+.map .nm{font:600 5px var(--sans);fill:var(--lunar)}
+.map .cap{font:400 4px var(--sans);fill:var(--mute)}
+@media(max-width:640px){.map .nm{font-size:6.5px}}
+
+/* dropdown menu */
+.menu{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.menu>li{position:relative}
+.menu button{height:60px;padding:0 18px;background:none;border:0;color:var(--lunar);font:500 16px var(--sans);cursor:pointer}
+.menu button:hover,.menu li.open button{color:var(--glow)}
+.sub{position:absolute;top:100%;left:50%;min-width:190px;transform:translateX(-50%);padding:8px;border:1px solid var(--line);border-radius:12px;background:rgba(13,27,69,.98);opacity:0;visibility:hidden;transition:opacity .15s}
+.sub a{display:block;padding:10px 14px;border-radius:8px;color:#CBD3E8;text-decoration:none;font-size:15px}
+.sub a:hover,.sub a:focus-visible{background:rgba(59,116,255,.25);color:#fff}
+.menu li.open .sub{opacity:1;visibility:visible}
+@media(hover:hover){.menu li:hover .sub{opacity:1;visibility:visible}.menu li:hover button{color:var(--glow)}}
+@media(max-width:860px){nav .wrap{flex-wrap:wrap;height:auto;padding-top:8px;padding-bottom:8px}
+.menu{order:3;width:100%;flex-wrap:wrap}.menu button{height:44px;padding:0 12px}
+.sub{position:static;transform:none;display:none;opacity:1;visibility:visible;width:100%;border:0;background:none;padding:0 0 8px 12px}
+.menu li.open .sub{display:block}}
+
+/* white dropdown */
+.sub{background:#fff;border:1px solid rgba(13,27,69,.1);box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.sub a{color:#1B2A52}
+.sub a:hover,.sub a:focus-visible{background:#EAF0FF;color:#0D1B45}
+@media(max-width:860px){.sub{background:#fff;border:1px solid rgba(13,27,69,.1);border-radius:12px;padding:8px;margin:0 0 8px 12px;width:calc(100% - 12px)}}
+
+/* KARI-style full-width menu */
+nav{transition:background .2s,border-color .2s}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand img{height:32px;width:auto;display:block}
+.brand b{transition:color .2s}
+.logo.b{display:none}
+.mega{display:none}
+@media(min-width:861px){
+nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.brand{justify-self:start}nav .btn{justify-self:end}
+.menu{gap:0}.menu button{width:150px;padding:0;transition:color .2s}
+.sub{display:none}
+.mega{display:block;position:absolute;top:100%;left:0;right:0;background:#fff;border-top:1px solid #E3E8F3;box-shadow:0 18px 34px rgba(0,0,0,.28);padding:26px 0 34px;opacity:0;visibility:hidden;transition:opacity .2s}
+.mi{display:flex;justify-content:center}
+.col{width:150px;text-align:center}
+.col a{display:block;padding:9px 0;color:#1B2A52;text-decoration:none;font-size:15px}
+.col a:hover,.col a:focus-visible{color:#2456E5;font-weight:700}
+nav.hot{background:#fff;border-bottom-color:#E3E8F3}
+nav.hot .mega{opacity:1;visibility:visible}
+nav.hot .brand b,nav.hot .menu button{color:#0D1B45}
+nav.hot .brand b{color:#2456E5}
+nav.hot .menu li:hover button,nav.hot .menu button:focus-visible{color:#2456E5}
+nav.hot .logo.w{display:none}nav.hot .logo.b{display:block}
+}
 </style>
 </head>
 <body>
-<nav><div class="wrap"><b>우주기술실용화촉진사업</b><a class="btn" href="#apply">지원하기</a></div></nav>
+<nav id="nav"><div class="wrap"><a class="brand" href="#"><img class="logo w" src="logo-white.png" alt="" onerror="this.remove()"><img class="logo b" src="logo-blue.png" alt="" onerror="this.remove()"><b>우주기술실용화촉진사업</b></a><ul class="menu" id="menu"><li><button type="button" aria-haspopup="true" aria-expanded="false">센터 소개</button><div class="sub"><a href="#">인사말</a><a href="#">조직 안내</a><a href="#">오시는 길</a></div></li><li><button type="button" aria-haspopup="true" aria-expanded="false">연구개발</button><div class="sub"><a href="#">위성특구</a><a href="#">발사체 특구</a><a href="#">기계·소재</a></div></li><li><button type="button" aria-haspopup="true" aria-expanded="false">뉴스룸</button><div class="sub"><a href="#">공지사항</a><a href="#">보도자료</a><a href="#">자료실</a></div></li><li><button type="button" aria-haspopup="true" aria-expanded="false">기술사업화</button><div class="sub"><a href="#">기술이전 안내</a><a href="#">지원사업 안내</a><a href="#">우수기술</a></div></li></ul><a class="btn" href="#apply">지원하기</a></div><div class="mega" id="mega"><div class="mi"><div class="col"><a href="#">인사말</a><a href="#">조직 안내</a><a href="#">오시는 길</a></div><div class="col"><a href="#">위성특구</a><a href="#">발사체 특구</a><a href="#">기계·소재</a></div><div class="col"><a href="#">공지사항</a><a href="#">보도자료</a><a href="#">자료실</a></div><div class="col"><a href="#">기술이전 안내</a><a href="#">지원사업 안내</a><a href="#">우수기술</a></div></div></div></nav>
 
-<header class="hero">
-  <div class="stars"></div><div class="earth"></div><div class="orbit"><i></i></div>
-  <div class="wrap">
+
+<section class="scene" id="scene" aria-label="우주에서 경남 클러스터까지"><div class="stick">
+  <div class="stars"></div><div class="ring" id="ring"></div><div class="globe" id="globe"></div><div class="sat" id="sat"></div>
+  <div class="hcopy" id="hcopy">
     <p class="k">2026년 참여팀 모집</p>
     <h1>우주에서 검증된 기술을<br>지구의 산업으로.</h1>
     <p class="lead">우주기술실용화촉진사업은 연구실의 우주기술을 실제 제품과 서비스로 만들 팀을 찾고 있습니다. 아이디어와 열정이 있다면, 나머지는 함께 준비하겠습니다.</p>
